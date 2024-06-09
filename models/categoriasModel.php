@@ -14,6 +14,62 @@
                 ? $stament->fetchAll()
                 : false;
         }
+
+        public function insertar($nombre,$descripcion){
+            $stament = $this->PDO->prepare("INSERT INTO categorias VALUES (null,:nombre,:descripcion)");
+
+            $stament->bindParam(":nombre",$nombre);
+            $stament->bindParam(":descripcion",$descripcion);
+
+            // //Recupera el id
+            // $idPersona = $this->PDO->lastInsertId();
+
+            return ($stament->execute()) 
+                ? true
+                : false;
+        }
+
+        public function show($id){
+            $stament = $this->PDO->prepare("SELECT * FROM categorias WHERE id = :id");
+
+            $stament->bindParam(":id", $id);
+
+            return($stament->execute()) 
+                ? $stament->fetch()
+                : false ;
+        }
+
+        public function update($id,$nombre,$descripcion){
+            $stament = $this->PDO->prepare("UPDATE categorias SET nombre = :nombre, descripcion = :descripcion WHERE id = :id");
+            $stament->bindParam(":nombre",$nombre);
+            $stament->bindParam(":descripcion",$descripcion);
+            $stament->bindParam(":id",$id);
+
+            return ($stament->execute())
+                ? true
+                : false;
+        }
+
+
+        public function delete($id){
+            $stament = $this->PDO->prepare("DELETE FROM categorias WHERE id = :id");
+            $stament->bindParam(":id",$id);
+
+            return ($stament->execute())
+                ? true
+                : false;
+        }
+
+        public function cantCategorias(){
+            $stament = $this->PDO->prepare("SELECT COUNT(*) AS cantidad FROM categorias");
+
+            if ($stament->execute()) {
+                $row = $stament->fetch(); // Obtener la primera fila
+                return $row['cantidad'];  // Devolver el valor de la columna 'cantidad'
+            } else {
+                return false;
+            }
+        }
     }
 
 ?>

@@ -9,15 +9,15 @@
   <body class="bg-dark">
     
     <div class="container vh-100 d-flex justify-content-center align-items-center">
-        <form class="bg-white p-3 rounded-2" style="width: 18rem;">
+        <form action="login/login.php" method="POST" class="bg-white p-3 rounded-2" style="width: 18rem;">
             <h1 class="fs-3 mb-3">Login</h1>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Usuario</label>
-              <input type="text" class="form-control" name="" id="">
+              <input type="text" class="form-control" name="usuario" id="usuario">
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Clave</label>
-              <input type="password" class="form-control" id="">
+              <input type="password" class="form-control" id="pass" name="pass">
             </div>
             <button type="submit" class="btn btn-primary">Acceder</button>
           </form>
