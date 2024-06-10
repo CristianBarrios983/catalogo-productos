@@ -36,7 +36,7 @@ $rows = $obj->index();
                 <td><?= $row[2] ?></td>
                 <td>
                   <a href="#" class="btn btn-warning abreModalActualizar" data-bs-toggle="modal" data-bs-target="#modalActualizar">Editar</a>
-                  <a href="#" data-id="<?= $row[0]; ?>" class="btn btn-danger" onclick="confirmDelete(this)">Eliminar</a>
+                  <a href="#" data-id="<?= $row[0] ?>" class="btn btn-danger" onclick="confirmDelete(this)">Eliminar</a>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -104,19 +104,8 @@ $rows = $obj->index();
   </div>
 </div>
 
+<script src="../../assets/js/main.js"></script>
 <script src="../../assets/js/mostrarDatosModal.js"></script>
-<script>
-  function confirmDelete(element) {
-    const id = element.getAttribute('data-id');
-    const confirmation = confirm('¿Estás seguro de que quieres eliminar este registro?');
-
-    if (confirmation) {
-      // Redirigir a la página de eliminación con el ID
-      window.location.href = `delete.php?id=${id}`;
-    }
-  }
-</script>
-
 
 <?php
 include_once '../includes/footer.php';

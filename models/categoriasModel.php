@@ -70,6 +70,18 @@
                 return false;
             }
         }
+
+        public function categorias(){
+            $stament = $this->PDO->prepare("SELECT id, nombre FROM categorias");
+
+            if ($stament->execute()) {
+                $categorias = $stament->fetchAll();
+
+                return $categorias;  // Devolver los valores en un array
+            } else {
+                return false;
+            }
+        }
     }
 
 ?>

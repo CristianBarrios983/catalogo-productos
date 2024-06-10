@@ -67,6 +67,12 @@
         
             return $cantidad !== false ? $cantidad : false;
         }
+
+        public function categorias() {
+            $categorias = $this->model->categorias();
+        
+            return $categorias !== false ? $categorias : [];
+        }
         
     }
 ?>

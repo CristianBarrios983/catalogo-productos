@@ -8,6 +8,10 @@
     $objCategoria = new CategoriasController();
     $cantidadCategorias = $objCategoria->cantCategorias();
 
+    require_once 'c://xampp/htdocs/catalogo/controllers/productosController.php';
+    $objProducto = new ProductosController();
+    $cantidadProductos = $objProducto->cantProductos();
+
 ?>
 
       <div class="container">
@@ -23,7 +27,15 @@
                         <div class="card-header">Header</div>
                         <div class="card-body">
                           <h5 class="card-title">Productos</h5>
-                          <p class="card-text">0</p>
+                          <p class="card-text">
+                            <?php
+                                if ($cantidadProductos !== false) {
+                                    echo $cantidadProductos;
+                                } else {
+                                    echo "Error";
+                                }
+                            ?>
+                          </p>
                         </div>
                     </div>
                 </div>
