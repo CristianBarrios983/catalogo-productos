@@ -1,10 +1,14 @@
 <?php
-include_once '../includes/head.php';
-include_once '../includes/menu.php';
+  session_start();
+  require_once 'c://xampp/htdocs/catalogo/controllers/authController.php';
+  $obj = new AuthController();
+  if($obj->isLogged() === true){
+      include_once '../includes/head.php';
+      include_once '../includes/menu.php';
 
-require_once 'c://xampp/htdocs/catalogo/controllers/categoriasController.php';
-$obj = new CategoriasController();
-$rows = $obj->index();
+      require_once 'c://xampp/htdocs/catalogo/controllers/categoriasController.php';
+      $obj = new CategoriasController();
+      $rows = $obj->index();
 ?>
 
 <div class="container">
@@ -106,6 +110,13 @@ $rows = $obj->index();
 
 <script src="../../assets/js/main.js"></script>
 <script src="../../assets/js/mostrarDatosModal.js"></script>
+
+<?php
+    }else{
+        echo "<script language='Javascript'>alert('No estas logueado');location.href = '../login.php';</script>`;";
+        // header("Location: login.php");
+    }
+?>
 
 <?php
 include_once '../includes/footer.php';
