@@ -1,0 +1,8 @@
+.efecto-zoom{
+    transition: 1s;
+}
+
+.efecto-zoom:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}

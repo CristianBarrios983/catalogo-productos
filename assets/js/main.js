@@ -1,45 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-   fetch('getCategories.php')
-    .then(response => response.json())
-    .then(data => {
-      const select = document.getElementById('categoria');
-      data.forEach(categoria => {
-        // console.log(`${categoria.id} ${categoria.nombre}`);
-        const option = document.createElement('option');
-        option.value = categoria.id;
-        option.text = categoria.nombre;
-        select.add(option);
-      });
-    })
-    .catch(error => console.error('Error:', error));
-});
+const cargarProductos = () => {
+    fetch('views/catalogo/productos.php')
+        .then(respuesta => respuesta.json())
+        .then(productos => {
+            const contenedorProductos = document.getElementById('productos');
 
-function confirmDelete(element) {
-    const id = element.getAttribute('data-id');
-    const confirmation = confirm('¿Estás seguro de que quieres eliminar este registro?');
+            productos.forEach(producto => {
+                // console.log(`${producto.id} ${producto.nombre} ${producto.descripcion} ${producto.precio} ${producto.cantidad} ${producto.nombre_categoria}`)
+                const tarjetaProducto = document.createElement('div');
+                tarjetaProducto.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+                tarjetaProducto.innerHTML = `
+                        <div class="card">
+                            <div class="imagen-producto overflow-hidden">
+                                <img src="imagenes/imagen-prueba.jpg" class="card-img-top efecto-zoom" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">${producto.nombre}</h5>
+                                <p class="card-text">${producto.descripcion}</p>
+                                <p class="card-text text-success fs-5">$${producto.precio}</p>
+                                <a href="#" class="btn btn-success">Consultar <i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                `;
 
-    if (confirmation) {
-      // Redirigir a la página de eliminación con el ID
-      window.location.href = `delete.php?id=${id}`;
-    }
+                contenedorProductos.append(tarjetaProducto);
+            });
+        });
 }
 
-function openEditModal(categoriaActual){
-  fetch('getCategories.php')
-    .then(response => response.json())
-    .then(data => {
-      const select = document.getElementById('categoriaEditar');
-      select.innerHTML = ''; // Limpiar opciones existentes
-      data.forEach(categoria => {
-        // console.log(`${categoria.id} ${categoria.nombre}`);
-        const option = document.createElement('option');
-        option.value = categoria.id;
-        option.text = categoria.nombre;
-        if (categoria.id == categoriaActual) {
-          option.selected = true; // Seleccionar la categoría actual del producto
-        }
-        select.add(option);
-      });
-    })
-    .catch(error => console.error('Error:', error));
-}
+cargarProductos();

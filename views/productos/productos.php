@@ -144,7 +144,7 @@
   </div>
 </div>
 
-<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/funciones.js"></script>
 <script src="../../assets/js/mostrarDatosModal.js"></script>
 
 <?php
