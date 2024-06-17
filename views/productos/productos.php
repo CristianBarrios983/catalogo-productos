@@ -22,7 +22,7 @@
       <div class="mb-3">
         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">Registrar producto</a>
       </div>
-      <table class="table table-hover">
+      <table class="table table-hover" id="tabla">
         <thead class="table-dark">
           <tr>
             <th scope="col">#</th>
@@ -72,7 +72,7 @@
       <div class="modal-body">
         <form action="store.php" method="POST">
           <div class="mb-3">
-            <label for="nombre" class="form-label">Nombre categoria</label>
+            <label for="nombre" class="form-label">Nombre producto</label>
             <input type="text" class="form-control" id="nombre" name="nombre">
           </div>
           <div class="mb-3">

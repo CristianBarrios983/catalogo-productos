@@ -7,24 +7,29 @@ const cargarProductos = () => {
             productos.forEach(producto => {
                 // console.log(`${producto.id} ${producto.nombre} ${producto.descripcion} ${producto.precio} ${producto.cantidad} ${producto.nombre_categoria}`)
                 const tarjetaProducto = document.createElement('div');
-                tarjetaProducto.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
+                tarjetaProducto.className = 'card bg-white p-3';
+                tarjetaProducto.setAttribute('style', 'width: 18rem;');
                 tarjetaProducto.innerHTML = `
-                        <div class="card">
-                            <div class="imagen-producto overflow-hidden">
-                                <img src="imagenes/imagen-prueba.jpg" class="card-img-top efecto-zoom" alt="...">
+                            <div class="img-hover">
+                                <img src="imagenes/imagen-prueba.jpg" class="card-img-top rounded-0" alt="...">
+                                <div class="overlay">
+                                    <a class="link"><i class="bi bi-eye fs-4"></i></a>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">${producto.nombre}</h5>
-                                <p class="card-text">${producto.descripcion}</p>
-                                <p class="card-text text-success fs-5">$${producto.precio}</p>
-                                <a href="#" class="btn btn-success">Consultar <i class="bi bi-whatsapp"></i></a>
+                            <div class="card-body p-0 pt-3">
+                                <h5 class="card-title card-description">${producto.nombre}</h5>
+                                <p class="card-text card-description text-muted">${producto.descripcion}</p>
+                                <p class="card-text text-success fw-semibold fs-4">$${producto.precio}</p>
+                                <a href="#" class="btn btn-success rounded-0">Consultar <i class="bi bi-whatsapp"></i></a>
                             </div>
-                        </div>
                 `;
 
                 contenedorProductos.append(tarjetaProducto);
             });
         });
 }
+
+{/* <a class="link"><i class="bi bi-bag fs-4"></i></a>
+<a class="link"><i class="bi bi-heart fs-4"></i></a> */}
 
 cargarProductos();

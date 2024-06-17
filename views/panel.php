@@ -28,7 +28,7 @@
             <div class="cards d-flex justify-content-center justify-content-md-start gap-3 flex-wrap">
                 <div class="col-12 col-md-3">
                     <div class="card text-bg-primary mb-3">
-                        <div class="card-header">Header</div>
+                        <!-- <div class="card-header">Productos</div> -->
                         <div class="card-body">
                           <h5 class="card-title">Productos</h5>
                           <p class="card-text">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-12 col-md-3">
                     <div class="card text-bg-warning mb-3 text-white">
-                        <div class="card-header">Header</div>
+                        <!-- <div class="card-header">Categorias</div> -->
                         <div class="card-body">
                           <h5 class="card-title">Categorias</h5>
                           <p class="card-text">
