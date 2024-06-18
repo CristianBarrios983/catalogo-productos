@@ -8,6 +8,9 @@
      <link rel="stylesheet" href="libraries/bootstrap/css/bootstrap.min.css">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- List Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+     <!-- <script src="libraries/list-js/list-js.js"></script> -->
     <!-- Styles -->
      <link rel="stylesheet" href="assets/css/styles.css">
   </head>
@@ -64,19 +67,26 @@
         </button>
       </div>
 
-      <div id="catalogo" class="">
-        <div class="container d-flex justify-content-center align-items-center my-4">
-            <div class="row">
-                <div class="title text-center my-3">
-                    <h2>Nuestros productos</h2>
-                </div>
-                  <div id="productos" class="d-flex justify-content-center align-items-center flex-wrap gap-3">
-                    <!-- Aqui se muestran los productos -->
-                  </div>
-                </div>
+      <div id="catalogo" class="container d-flex justify-content-center align-items-center my-4">
+        <div class="row">
+          <div class="col-12">
+            <div class="title text-center my-3">
+              <h2>Nuestros productos</h2>
             </div>
+            <input class="search form-control mb-3" placeholder="Buscar producto"/>
+            <div class="btn-group mb-3 d-flex justify-content-center flex-wrap gap-2">
+              <button class="btn btn-primary" onclick="filterCategory('all')">Todos</button>
+              <button class="btn btn-primary" onclick="filterCategory('Calzados')">Calzados</button>
+              <button class="btn btn-primary" onclick="filterCategory('Pantalones')">Pantalones</button>
+              <button class="btn btn-primary" onclick="filterCategory('Remeras')">Remeras</button>
+              <button class="btn btn-primary" onclick="filterCategory('Medias')">Medias</button>
+            </div>
+            <div id="productos" class="d-flex justify-content-center align-items-center flex-wrap gap-3 list">
+              <!-- Aquí se muestran los productos -->
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
     
     <script src="assets/js/loader.js"></script>
     <script src="assets/js/main.js"></script>
