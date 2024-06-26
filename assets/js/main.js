@@ -20,7 +20,7 @@ let productList; // Declarar la variable productList en un contexto más amplio
               <div class="card-body p-0 pt-3">
                 <h5 class="card-title card-description name">${producto.nombre}</h5>
                 <p class="card-text text-success fw-semibold fs-4 price">$${producto.precio}</p>
-                <p class="card-text text-muted category">${producto.nombre_categoria}</p>
+                <p class="card-text text-muted hidden category">${producto.nombre_categoria}</p>
                 <a href="#" class="btn btn-success rounded-0">Consultar <i class="bi bi-whatsapp"></i></a>
               </div>
             `;
@@ -46,5 +46,32 @@ let productList; // Declarar la variable productList en un contexto más amplio
       }
     }
 
+    const cargarBotonesCategorias = () => {
+      fetch('views/catalogo/categorias.php')
+        .then(respuesta => respuesta.json())
+        .then(categorias => {
+          const contenedorBotonesCategorias = document.getElementById('categorias');
+          const botonCategoria = document.createElement('button');
+            botonCategoria.className = 'btn btn-primary';
+            botonCategoria.setAttribute('onclick', `filterCategory('all')`);
+            botonCategoria.textContent = `
+              Todos
+            `;
+            contenedorBotonesCategorias.append(botonCategoria);
+
+          categorias.forEach(categoria => {
+            const botonCategoria = document.createElement('button');
+            botonCategoria.className = 'btn btn-primary';
+            botonCategoria.setAttribute('onclick', `filterCategory('${categoria.nombre}')`);
+            botonCategoria.textContent = `
+              ${categoria.nombre}
+            `;
+            contenedorBotonesCategorias.append(botonCategoria);
+          });
+
+        });
+    }
+
     // Función para inicializar la carga de productos al cargar la página
+    cargarBotonesCategorias();
     cargarProductos();

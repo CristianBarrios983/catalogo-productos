@@ -39,8 +39,12 @@
                 <td><?= $row[1] ?></td>
                 <td><?= $row[2] ?></td>
                 <td>
-                  <a href="#" class="btn btn-warning abreModalActualizar" data-bs-toggle="modal" data-bs-target="#modalActualizar">Editar</a>
-                  <a href="#" data-id="<?= $row[0] ?>" class="btn btn-danger" onclick="confirmDelete(this)">Eliminar</a>
+                  <a href="#" class="btn btn-warning abreModalActualizar" data-bs-toggle="modal" data-bs-target="#modalActualizar">
+                    <span class="bi bi-pen-fill"></span>
+                  </a>
+                  <a href="#" data-id="<?= $row[0] ?>" class="btn btn-danger" onclick="confirmDelete(this)">
+                    <span class="bi bi-trash3-fill"></span>
+                  </a>
                 </td>
               </tr>
             <?php endforeach; ?>

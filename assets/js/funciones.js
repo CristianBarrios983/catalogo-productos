@@ -23,6 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
        window.location.href = `delete.php?id=${id}`;
      }
  }
+
+ function confirmDeleteImage(element) {
+  const id = element.getAttribute('data-id');
+  const producto = element.getAttribute('product-id');
+
+  const confirmation = confirm('¿Estás seguro de que quieres eliminar esta imagen?');
+
+  if (confirmation) {
+    // Redirigir a la página de eliminación con el ID
+    window.location.href = `delete.php?id=${id}&product=${producto}`;
+  }
+}
  
  function openEditModal(categoriaActual){
    fetch('getCategories.php')
@@ -43,3 +55,25 @@ document.addEventListener("DOMContentLoaded", () => {
      })
      .catch(error => console.error('Error:', error));
  }
+
+ function openEditModalImage(element){
+  const id = element.getAttribute('data-id');
+  const producto = element.getAttribute('product-id');
+
+  const inputImageId = document.getElementById('idImagen');
+  const inputProductId = document.getElementById('productoId');
+  const imgPreview = document.getElementById('img-preview-update');
+
+    // Limpiar la vista previa de la imagen
+    imgPreview.src = '';
+
+    // Verificar si los elementos existen antes de asignarles valores
+    if (inputImageId && inputProductId) {
+        inputImageId.value = id;
+        inputProductId.value = producto;
+
+    } else {
+        console.error('No se encontraron los elementos con los IDs especificados.');
+    }
+
+}

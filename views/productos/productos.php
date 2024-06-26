@@ -45,8 +45,15 @@
               <td><?= $row[4] ?></td>
               <td><?= $row[6] ?></td>
               <td>
-                <a href="#" class="btn btn-warning abreModalActualizar" data-bs-toggle="modal" data-bs-target="#modalActualizar" onclick="openEditModal(<?= $row[5] ?>)">Editar</a>
-                <a href="#" data-id="<?= $row[0] ?>" class="btn btn-danger" onclick="confirmDelete(this)">Eliminar</a>
+                <a href="../imagenes/imagenesProducto.php?id=<?= $row[0] ?>" class="btn btn-success">
+                    <span class="bi bi-image-fill"></span>
+                  </a>
+                <a href="#" class="btn btn-warning abreModalActualizar" data-bs-toggle="modal" data-bs-target="#modalActualizar" onclick="openEditModal(<?= $row[5] ?>)">
+                  <span class="bi bi-pen-fill"></span>
+                </a>
+                <a href="#" data-id="<?= $row[0] ?>" class="btn btn-danger" onclick="confirmDelete(this)">
+                  <span class="bi bi-trash3-fill"></span>
+                </a>
               </td>
             </tr>
             <?php endforeach; ?>
